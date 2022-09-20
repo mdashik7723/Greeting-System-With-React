@@ -1,29 +1,22 @@
 import React from "react";
+import Home from "./Home";
+import About from "./About";
+import Service from "./Service";
+import Contact from "./Contact";
+import {Route, Routes} from "react-router-dom";
 
-
-function App () {
-    let curDate = new Date (2022, 8, 23, 2);
-    curDate = curDate.getHours();
-    let Greeting = "";
-    const cssStyle = { };
-    if (curDate >= 1 && curDate < 12) {
-        Greeting = 'Good Morning';
-        cssStyle.color = 'green';
-    } else if (curDate >= 12 && curDate< 20){
-        Greeting = 'Good Afternoon';
-        cssStyle.color = 'Orange';
-    } else{
-        Greeting ='Good Night';
-        cssStyle.color = 'Black';
-    }
+const App = () => {
     return(
-        <>
-        <div>
-            <h1> Hello Sir, <span style={cssStyle}> {Greeting} </span> </h1>,
-        </div>
-        </>
-    )
 
+        <Routes>
+                <Route path = "/" component = {<Home/>}/>
+            <Route path = "/about" component = {<About/>}/>
+            <Route path = "/service" component = {<Service/>}/>
+            <Route path = "/contact" component = {<Contact/>}/>
+
+        </Routes>
+
+    )
 }
 
 export default App;
